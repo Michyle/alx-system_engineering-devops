@@ -7,8 +7,8 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
 sudo ufw allow 22/tcp
-sudo ufw 433/tcp
-sdo allow 80/tcp
+sudo ufw 443/tcp
+sudo allow 80/tcp
 
 sudo ufw show added
 
