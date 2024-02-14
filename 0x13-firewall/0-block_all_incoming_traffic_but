@@ -1,15 +1,17 @@
-sudo ufw status
+#!/usr/bin/env bash
+#Configure ufw so that it blocks all incoming traffic except: 22, 433 80
 
-sudo ufw enable
+sudo apt-get -y update
+sudo apt-get -y install ufw
+
+sudo ufw disable
 
 sudo ufw default deny incoming
 
 sudo ufw default allow outgoing
 
 sudo ufw allow 22/tcp
-sudo ufw 443/tcp
+sudo ufw allow 433/tcp
 sudo allow 80/tcp
-
-sudo ufw show added
 
 sudo ufw enable
