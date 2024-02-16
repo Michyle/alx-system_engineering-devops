@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# this fixes a server bug
+chmod 644 /ect/nginx/nginx.conf
+
+#change user directive in nginx.conf
+sed -Ei 's/\s*#?\s*user .*/user nginx;/' /ect/nginx/nginx.conf
+
+#updates the default Nginx config to listen on port 80
+sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /ect/nginx/sites-enabled/default
+
+#stops apache server
+pkill apache2
+
+# restart
+su nginx -s /bin/bash -c 'service nginx restart'
